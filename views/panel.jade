@@ -1,0 +1,73 @@
+div(class='col-md-4')
+    div(class='panel panel-default')
+        div(class='panel-heading') #{head}
+        div(class='panel-body')
+            table(class='table')
+                - if (data.oa)
+                    tr
+                        td oa:
+                        td #{data.oa}
+                - if (data.ma)
+                    tr
+                        td ma:
+                        td #{data.ma}
+                - if (data.code)
+                    tr
+                        td code:
+                        td #{data.code}
+                - if (data.prefix)
+                    tr
+                        td prefix:
+                        td #{data.prefix}
+                - if (data.nbr)
+                    tr
+                        td nbr:
+                        td #{data.nbr}
+                - if (data.country)
+                    tr
+                        td country:
+                        td #{data.country}
+                - if (data.unit)
+                    tr
+                        td unit:
+                        td #{data.unit}
+                - if (data.street)
+                    tr
+                        td street:
+                        td #{data.street}
+                - if (data.lastupdated)
+                    tr
+                        td lastupdated:
+                        td #{data.lastupdated}
+                - if (data.block)
+                    tr
+                        td block:
+                        td #{data.block}
+                - if (data.source)
+                    tr
+                        td source:
+                        td #{data.source}
+                - if (data.postal)
+                    tr
+                        td postal:
+                        td #{data.postal}
+                - if (data.classification)
+                    tr
+                        td classification:
+                        td #{data.classification}
+                - if (data.floor)
+                    tr
+                        td floor:
+                        td #{data.floor}
+                - if (data.building)
+                    tr
+                        td building:
+                        td #{data.building}
+                - if (data.value)
+                    tr
+                        td value:
+                        td #{data.value}
+                - if (data.sa)
+                    tr
+                        td sa:
+                        td #{data.sa}

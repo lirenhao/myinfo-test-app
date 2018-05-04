@@ -1,0 +1,15 @@
+{
+  "myInfo": {
+    "privateKey": "./ssl/testapp_private.pem",
+    "publicKey": "./ssl/stg-auth-signing-public.pem",
+    "clientId": "STG2-MYINFO-SELF-TEST",
+    "clientSecret": "44d953c796cccebcec9bdc826852857ab412fbe2",
+    "redirectUrl": "http://localhost:3001/callback",
+    "realmUrl": "http://localhost:3001",
+    "authLevel": "L0",
+    "authApiUrl": "https://myinfosgstg.api.gov.sg/dev/v1/authorise",
+    "tokenApiUrl": "https://myinfosgstg.api.gov.sg/dev/v1/token",
+    "personApiUrl": "https://myinfosgstg.api.gov.sg/dev/v1/person",
+    "attributes": "name,sex,race,nationality,dob,email,mobileno,regadd,housingtype,hdbtype,marital,edulevel,assessableincome,hanyupinyinname,aliasname,hanyupinyinaliasname,marriedname,cpfcontributions,cpfbalances"
+  }
+}

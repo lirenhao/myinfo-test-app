@@ -1,0 +1,21 @@
+{
+  "name": "myinfo-test-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "config": "^1.30.0",
+    "express": "^4.16.3",
+    "jade": "^1.11.0",
+    "jsonwebtoken": "^8.2.1",
+    "node-fetch": "^2.1.2",
+    "url-search-params": "^0.10.0"
+  }
+}

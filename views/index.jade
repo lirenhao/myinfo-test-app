@@ -1,0 +1,64 @@
+html(lang='zh-CN')
+    head
+        title index
+        link(rel='stylesheet', href='/components/bootstrap/css/bootstrap.css')
+    body
+        div(class='container')
+            div(class='row')
+                - var head = 'edulevel'
+                - var data = edulevel
+                include panel
+                - var head = 'regadd'
+                - var data = regadd
+                include panel
+                - var head = 'mobileno'
+                - var data = mobileno
+                include panel
+                - var head = 'hanyupinyinname'
+                - var data = hanyupinyinname
+                include panel
+                - var head = 'marriedname'
+                - var data = marriedname
+                include panel
+                - var head = 'email'
+                - var data = email
+                include panel
+                - var head = 'race'
+                - var data = race
+                include panel
+                - var head = 'housingtype'
+                - var data = housingtype
+                include panel
+                - var head = 'sex'
+                - var data = sex
+                include panel
+                - var head = 'hdbtype'
+                - var data = hdbtype
+                include panel
+                - var head = 'hanyupinyinaliasname'
+                - var data = hanyupinyinaliasname
+                include panel
+                - var head = 'marital'
+                - var data = marital
+                include panel
+                - var head = 'aliasname'
+                - var data = aliasname
+                include panel
+                - var head = 'nationality'
+                - var data = nationality
+                include panel
+                - var head = 'dob'
+                - var data = dob
+                include panel
+                - var head = 'name'
+                - var data = name
+                include panel
+                - var head = 'cpfbalances'
+                - var data = cpfbalances
+                include panel
+                - var head = 'assessableincome'
+                - var data = assessableincome
+                include panel
+            - var head = 'cpfcontributions'
+            - var list = cpfcontributions.cpfcontribution
+            include table

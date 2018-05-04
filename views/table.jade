@@ -1,0 +1,16 @@
+div(class='panel panel-default')
+    div(class='panel-heading') #{head}
+    table(class='table table-striped')
+        thead
+            tr
+                th date
+                th amount
+                th month
+                th employer
+        tbody
+            each item in list
+                tr
+                    td #{item.date}
+                    td #{item.amount}
+                    td #{item.month}
+                    td #{item.employer}
