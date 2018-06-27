@@ -1,0 +1,88 @@
+{
+  "edulevel": {
+    "lastupdated": "2018-06-23",
+    "source": "2",
+    "classification": "C",
+    "value": "3"
+  },
+  "regadd": {
+    "country": "SG",
+    "unit": "128",
+    "street": "BEDOK NORTH AVENUE 4",
+    "lastupdated": "2018-03-20",
+    "block": "102",
+    "source": "1",
+    "postal": "460102",
+    "classification": "C",
+    "floor": "09",
+    "building": ""
+  },
+  "mobileno": {
+    "code": "65",
+    "prefix": "+",
+    "lastupdated": "2018-06-27",
+    "source": "4",
+    "classification": "C",
+    "nbr": "97399245"
+  },
+  "email": {
+    "lastupdated": "2018-06-27",
+    "source": "4",
+    "classification": "C",
+    "value": "myinfotesting@gmail.com"
+  },
+  "race": {
+    "lastupdated": "2018-03-20",
+    "source": "1",
+    "classification": "C",
+    "value": "CN"
+  },
+  "housingtype": {
+    "lastupdated": null,
+    "source": "1",
+    "classification": "C",
+    "value": ""
+  },
+  "sex": {
+    "lastupdated": "2018-03-20",
+    "source": "1",
+    "classification": "C",
+    "value": "F"
+  },
+  "hdbtype": {
+    "lastupdated": "2018-03-21",
+    "source": "1",
+    "classification": "C",
+    "value": "111"
+  },
+  "marital": {
+    "lastupdated": "2018-03-21",
+    "source": "1",
+    "classification": "C",
+    "value": "1"
+  },
+  "nationality": {
+    "lastupdated": "2018-03-20",
+    "source": "1",
+    "classification": "C",
+    "value": "SG"
+  },
+  "dob": {
+    "lastupdated": "2018-03-20",
+    "source": "1",
+    "classification": "C",
+    "value": "1970-05-17"
+  },
+  "name": {
+    "lastupdated": "2018-03-20",
+    "source": "1",
+    "classification": "C",
+    "value": "TAN XIAO HUI"
+  },
+  "assessableincome": {
+    "lastupdated": "2015-12-23",
+    "source": "1",
+    "classification": "C",
+    "value": "1456789.00"
+  }
+}
