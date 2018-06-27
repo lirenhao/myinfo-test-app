@@ -70,8 +70,9 @@ app.get('/callback', (req, res) => {
         })
         .then(res => res.text())
         .then(text => {
-            const data = verifyJWS(text)
-            res.render('index', data)
+            // const data = verifyJWS(text)
+            // S9812381D MyInfo2o15
+            res.render('index', JSON.parse(text))
         })
         .catch(e => {
             res.send(e)
