@@ -1,15 +1,15 @@
 const path = require('path')
-const fs = require('fs')
 const bodyParser = require('body-parser')
 const express = require('express')
-const config = require('config')
 const fetch = require('node-fetch')
-const URLSearchParams = require('url-search-params')
 const jwt = require('jsonwebtoken')
 
-const app = express()
+const client = {
+    clientId: 'application1',
+    clientSecret: 'secret1'
+}
 
-const myInfoConfig = config.get('myInfo')
+const app = express()
 
 app.set('views', path.resolve(__dirname, './views'))
 app.set('view engine', 'jade')
@@ -22,68 +22,28 @@ app.get('/', (req, res) => {
 })
 
 app.get('/login', (req, res) => {
-    const purpose = 'demonstrating MyInfo APIs'
-    const state = 123
-
-    const authoriseUrl = myInfoConfig.authApiUrl
-        + "?client_id=" + myInfoConfig.clientId
-        + "&attributes=" + myInfoConfig.attributes
-        + "&purpose=" + purpose
-        + "&state=" + state
-        + "&redirect_uri=" + myInfoConfig.redirectUrl;
-
-    res.redirect(authoriseUrl)
+    fetch('http://localhost:3001/oauth/token', {
+        method: 'POST',
+        body: 'grant_type=client_credentials',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': 'Basic YXBwbGljYXRpb24xOnNlY3JldDE='
+        }
+    }).then(res => res.json()).then(data => {
+        console.log(data)
+        res.redirect(`http://localhost:3001?access_token=${data.access_token}&templateId=temp1&state=1234567890`)
+    })
 })
-
-function verifyJWS(jws) {
-    const cert = fs.readFileSync(path.resolve(__dirname, myInfoConfig.publicKey))
-    return jwt.verify(jws, cert, {algorithms: ['RS256'], ignoreNotBefore: true});
-}
 
 app.get('/callback', (req, res) => {
-    const data = req.query
-    const params = new URLSearchParams()
-    params.append('grant_type', 'authorization_code')
-    params.append('code', data.code)
-    params.append('redirect_uri', myInfoConfig.redirectUrl)
-    params.append('client_id', myInfoConfig.clientId)
-    params.append('client_secret', myInfoConfig.clientSecret)
-
-    fetch(myInfoConfig.tokenApiUrl, {method: 'POST', body: params})
-        .then(res => new Promise(async (resolve, reject) => {
-            if (res.status === 200) {
-                resolve(await res.json())
-            } else {
-                reject(await res.text())
-            }
-        }))
-        .then(json => {
-            console.log(json.access_token)
-            const token = verifyJWS(json.access_token)
-            const url = `${myInfoConfig.personApiUrl}/${token.sub}/?client_id=${myInfoConfig.clientId}&attributes=${myInfoConfig.attributes}`
-            return fetch(url, {
-                method: 'GET',
-                headers: {
-                    Authorization: `Bearer ${json.access_token}`,
-                }
-            })
-        })
-        .then(res => res.text())
-        .then(text => {
-            // const data = verifyJWS(text)
-            // S9812381D MyInfo2o15
-            res.render('index', JSON.parse(text))
-        })
-        .catch(e => {
-            res.send(e)
-        })
+    const token = req.query.data
+    const data = jwt.verify(token, client.clientSecret)
+    if (data.status === 'SUCCESS')
+        res.render('index', data.msg)
+    else
+        res.send(data.msg)
 })
 
-app.get('/token', (req, res) => {
-    console.log('token')
-    res.end()
-})
-
-app.listen(3001, function (event) {
+app.listen(3000, function (event) {
     console.log('start')
 })
